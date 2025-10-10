@@ -23,8 +23,12 @@ namespace Plotter
 
             _stopwatch.Start();
 
-            AvaPlot1.Plot.Axes.Bottom.Label.Text = "Time Elapsed (seconds)";
-            AvaPlot1.Plot.Axes.Left.Label.Text = "Value";
+            AvaPlot1.Plot.Grid.IsVisible = false;
+            AvaPlot1.Plot.Axes.Bottom.IsVisible = false;
+            AvaPlot1.Plot.Axes.Left.IsVisible = false;
+
+            AvaPlot1.Plot.Layout.Frameless();
+
 
             AvaPlot1.Plot.Add.Scatter(_time, _valueYs);
 
