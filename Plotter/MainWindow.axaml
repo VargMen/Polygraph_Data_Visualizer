@@ -7,6 +7,11 @@
         x:Class="Plotter.MainWindow"
         Title="Plotter">
 
-	<ScottPlot:AvaPlot Name="AvaPlot1"/>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="8" Spacing="8">
+            <Button x:Name="BtnToggleIndexes" Content="Toggle Render Indexes" Click="BtnToggleIndexes_Click"/>
+        </StackPanel>
 
+        <ScottPlot:AvaPlot Name="AvaPlot1"/>
+    </DockPanel>
 </Window>
