@@ -1,9 +1,9 @@
 ﻿using System;
 using Avalonia;
 
-namespace Plotter
+namespace SkiaTestMacOS_MVVM
 {
-    internal class Program
+    internal sealed class Program
     {
         // Initialization code. Don't use any Avalonia, third-party APIs or any
         // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
