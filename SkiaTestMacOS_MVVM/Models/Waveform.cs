@@ -9,7 +9,7 @@ namespace SkiaTestMacOS_MVVM.Models
 {
     internal class Waveform
     {
-        public Avalonia.Points nominalPoints { get; set; } = new Avalonia.Points();
+        public List<Avalonia.Point> nominalPoints { get; set; } = new List<Avalonia.Point>(60000);
         public double scale { get; set; } = 1.0;
         public double verticalOffset { get; set; } = 0.0;
 

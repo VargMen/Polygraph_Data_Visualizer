@@ -36,8 +36,6 @@ namespace SkiaTestMacOS_MVVM.Controls
             Focusable = true;
             KeyDown += OnKeyDown;
 
-            _stopwatch.Start();
-
             _timer.Elapsed += OnTick;
             _timer.Interval = 50;
 
@@ -45,9 +43,6 @@ namespace SkiaTestMacOS_MVVM.Controls
             {
                 _waveforms.Add(new Waveform());
             }
-
-            //_waveforms[0].nominalPoints = GenerateSine(0, 200, 15, 10, 3);
-            //_waveforms[1].nominalPoints = GenerateSine(0, 100, 5, 10, 10);
         }
 
         private void OnTick(object? s, ElapsedEventArgs e)
@@ -101,9 +96,15 @@ namespace SkiaTestMacOS_MVVM.Controls
 
                 case Key.Space:
                     if (!_draw)
+                    {
                         _timer.Start();
-                    else 
+                        _stopwatch.Start();
+                    }
+                    else
+                    {
                         _timer.Stop();
+                        _stopwatch.Stop();
+                    }
 
                     _draw = !_draw;
                     break;
@@ -180,7 +181,7 @@ namespace SkiaTestMacOS_MVVM.Controls
             context.DrawGeometry(null, pen, geo);
         }
 
-        private static int LowerBound(Points pts, double x)
+        private static int LowerBound(List<Avalonia.Point> pts, double x)
         {
             int lo = 0, hi = pts.Count;
             while (lo < hi)
@@ -193,7 +194,7 @@ namespace SkiaTestMacOS_MVVM.Controls
         }
 
         // Binary search: last index with points[i].X <= x
-        private static int UpperBound(Points pts, double x)
+        private static int UpperBound(List<Avalonia.Point> pts, double x)
         {
             int lo = 0, hi = pts.Count; // [lo, hi)
             while (lo < hi)
